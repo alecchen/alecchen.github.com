@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://alecchen.github.com/blog/archives/</loc>
+        <loc>http://blog.alec.tw/blog/archives/</loc>
         <lastmod>2011-11-30T21:54:19+08:00</lastmod>
     </url>
     <url>
-        <loc>http://alecchen.github.com/</loc>
+        <loc>http://blog.alec.tw/</loc>
         <lastmod>2011-11-30T21:54:19+08:00</lastmod>
     </url>
 </urlset>
