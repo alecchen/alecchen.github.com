@@ -67,6 +67,7 @@
 <ul class="main-navigation">
   <li><a href="/">Blog</a></li>
   <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
 </ul>
 
 </nav>
@@ -235,6 +236,10 @@
 <aside class="sidebar">
   
     <section>
+  <h1>About Me</h1>
+  <p>領半導體公司的薪水的 Developer。為了增加生產力嘗試各種方法。</p>
+</section>
+<section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
     
@@ -244,6 +249,23 @@
     
   </ul>
 </section>
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("alec929", 3, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/alec929" class="twitter-follow-button" data-width="208px" data-show-count="false">Follow @alec929</a>
+  
+</section>
+
 
 <section>
   <h1>Github Repos</h1>
@@ -276,29 +298,11 @@
 
 
 <section>
-  <h1>Latest Tweets</h1>
-  <ul id="tweets">
-    <li class="loading">Status updating...</li>
-  </ul>
-  <script type="text/javascript">
-    $.domReady(function(){
-      getTwitterFeed("alec929", 3, false);
-    });
-  </script>
-  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
-  
-    <a href="http://twitter.com/alec929" class="twitter-follow-button" data-width="208px" data-show-count="false">Follow @alec929</a>
-  
-</section>
-
-
-<section>
   <h1>On Delicious</h1>
   <div id="delicious"></div>
   <script type="text/javascript" src="http://feeds.delicious.com/v2/json/alec929?count=3&amp;sort=date&amp;callback=renderDeliciousLinks"></script>
   <p><a href="http://delicious.com/alec929">My Delicious Bookmarks &raquo;</a></p>
 </section>
-
 
 <section class="googleplus">
   <h1>
