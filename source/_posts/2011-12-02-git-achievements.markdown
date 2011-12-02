@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "git - 擊倒 50 名敵人"
+title: "Git - 擊倒 50 名敵人"
 date: 2011-12-02 07:08
 comments: true
 categories: git
