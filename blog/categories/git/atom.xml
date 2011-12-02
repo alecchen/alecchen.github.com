@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Alec Chen]]></title>
-  <link href="http://blog.alec.tw/atom.xml" rel="self"/>
+  <title><![CDATA[Category: git | Alec Chen]]></title>
+  <link href="http://blog.alec.tw/blog/categories/git/atom.xml" rel="self"/>
   <link href="http://blog.alec.tw/"/>
   <updated>2011-12-02T08:49:37+08:00</updated>
   <id>http://blog.alec.tw/</id>
@@ -26,9 +26,9 @@
 
 <p>首先當然是 clone 一份來。</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git clone https://github.com/icefox/git-achievements</span></code></pre></td></tr></table></div></figure>
-
+<p><code>
+git clone https://github.com/icefox/git-achievements
+</code></p>
 
 <p>先別跟著做，因為這樣不是很正確，你只能自己欣賞你的獎盃，沒辦法跟別人分享。</p>
 
@@ -36,18 +36,16 @@
 
 <p>正確的方式是 fork 一份之後，再從自己的 repo clone 下來</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git clone git@github.com:&lt;username&gt;/git-achievements.git</span></code></pre></td></tr></table></div></figure>
-
+<p><code>
+git clone git@github.com:&lt;username&gt;/git-achievements.git
+</code></p>
 
 <p>最後改一下 shell 的環境變數（這是 bash，其他什麼 *sh 的請自行想像）</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;$PATH:~/git/git-achievements&quot;</span>
-</span><span class='line'><span class="nb">alias </span><span class="nv">git</span><span class="o">=</span><span class="s2">&quot;git-achievements&quot;</span>
-</span></code></pre></td></tr></table></div></figure>
-
+<p><code>bash
+export PATH="$PATH:~/git/git-achievements"
+alias git="git-achievements"
+</code></p>
 
 <p>接著就不管他了，照原本的工作方式用 git。</p>
 
@@ -55,35 +53,30 @@
 
 <p>目前在公司因為用 svn 的同事還是佔大多數，程式碼也都是放在 svn server 上，所以常做的就是</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>git svn rebase
-</span><span class='line'>git svn dcommit
-</span></code></pre></td></tr></table></div></figure>
-
+<p><code>
+git svn rebase
+git svn dcommit
+</code></p>
 
 <p>於是我的得分大部分都是從 git-svn 來的，是不是感覺有點悲哀？真希望 Linus 來幫大家<a href="http://www.youtube.com/watch?v=4XpnKHJAok8">洗腦一下</a>。</p>
 
 <p>總之邊<del>玩</del>工作就會邊升級，三不五時就有一個獎盃也算是有點提振士氣的效果。最後如果你想欣賞你全部的獎盃的話，只需要打</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>git achievements -p
-</span></code></pre></td></tr></table></div></figure>
-
+<p><code>
+git achievements -p
+</code></p>
 
 <p>就會在你安裝 git-achievements 的目錄產生 index.html，用你喜歡的瀏覽器打開就可以看到結果。假使你有 fork 一份，而且也設定了上傳到 github</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>git config --global achievement.upload <span class="s2">&quot;true&quot;</span>
-</span></code></pre></td></tr></table></div></figure>
-
+<p><code>
+git config --global achievement.upload "true"
+</code></p>
 
 <p>就可以在</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>http://&lt;username&gt;.github.com/git-achievements
-</span></code></pre></td></tr></table></div></figure>
-
+<p><code>
+http://&lt;username&gt;.github.com/git-achievements
+</code></p>
 
 <p>看到你全部的獎盃囉！是不是很有成就感！</p>
 
