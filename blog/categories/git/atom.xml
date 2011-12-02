@@ -4,7 +4,7 @@
   <title><![CDATA[Category: git | Alec Chen]]></title>
   <link href="http://blog.alec.tw/blog/categories/git/atom.xml" rel="self"/>
   <link href="http://blog.alec.tw/"/>
-  <updated>2011-12-02T09:42:38+08:00</updated>
+  <updated>2011-12-02T12:46:11+08:00</updated>
   <id>http://blog.alec.tw/</id>
   <author>
     <name><![CDATA[Alec Chen]]></name>
@@ -14,11 +14,13 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Git - 擊倒 50 名敵人]]></title>
+    <title type="html"><![CDATA[用 Git 得獎盃 - Git Achievements]]></title>
     <link href="http://blog.alec.tw/blog/2011/12/02/git-achievements/"/>
     <updated>2011-12-02T07:08:00+08:00</updated>
     <id>http://blog.alec.tw/blog/2011/12/02/git-achievements</id>
-    <content type="html"><![CDATA[<p>標題純粹是我自己的幻想，因為最近都在玩再度成為經典的<a href="http://acg.gamer.com.tw/acgDetail.php?s=42215">秘境探險 3</a>的關係。</p>
+    <content type="html"><![CDATA[<p><blockquote><p>已獲得獎盃。<br/>Git - 擊倒 50 名敵人</p></blockquote></p>
+
+<p>這純粹是我自己的想像，因為最近都在玩再度成為經典的<a href="http://acg.gamer.com.tw/acgDetail.php?s=42215">秘境探險 3</a>的關係。</p>
 
 <p><a href="https://github.com/icefox">icefox</a> 的 <a href="https://github.com/icefox/git-achievements">git-achievements</a> 是一個很有意思的專案，在公司已經用了大概半年。它利用類似 PS3 的<a href="http://www.yourgamercards.net/profile/alecchen">獎盃</a>系統，可以讓你在枯燥的工作環境增加一點小小的趣味。</p>
 
