@@ -1,11 +1,16 @@
 ---
 layout: post
-title: "Git - 擊倒 50 名敵人"
+title: "用 Git 得獎盃 - Git Achievements"
 date: 2011-12-02 07:08
 comments: true
 categories: git
 ---
-標題純粹是我自己的幻想，因為最近都在玩再度成為經典的[秘境探險 3](http://acg.gamer.com.tw/acgDetail.php?s=42215)的關係。
+{% blockquote %}
+已獲得獎盃。
+Git - 擊倒 50 名敵人
+{% endblockquote %}
+
+這純粹是我自己的想像，因為最近都在玩再度成為經典的[秘境探險 3](http://acg.gamer.com.tw/acgDetail.php?s=42215)的關係。
 
 [icefox](https://github.com/icefox) 的 [git-achievements](https://github.com/icefox/git-achievements) 是一個很有意思的專案，在公司已經用了大概半年。它利用類似 PS3 的[獎盃](http://www.yourgamercards.net/profile/alecchen)系統，可以讓你在枯燥的工作環境增加一點小小的趣味。
 
@@ -51,7 +56,7 @@ git svn dcommit
 
 總之邊~~玩~~工作就會邊升級，三不五時就有一個獎盃也算是有點提振士氣的效果。
 
-最後如果你想欣賞你全部的獎盃的話，只需要打 `git achievements -p`，就會在你安裝 git-achievements 的目錄產生`index.html`，用瀏覽器打開就可以看到結果。假使你有照前面介紹的 fork 一份，而且也設定了
+最後如果你想欣賞你全部的獎盃的話，只需要打 `git achievements -p`，就會在你安裝 git-achievements 的目錄產生 `index.html`，用瀏覽器打開就可以看到結果。假使你有照前面介紹的 fork 一份，而且也設定了
 
 ```
 git config --global achievement.upload "true"
