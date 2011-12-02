@@ -7,7 +7,7 @@ categories: git
 ---
 標題純粹是我自己的幻想，因為最近都在玩再度成為經典的[秘境探險 3](http://acg.gamer.com.tw/acgDetail.php?s=42215)的關係。
 
-[icefox](https://github.com/icefox) 的 [git-achievement](https://github.com/icefox/git-achievements) 是一個很有意思的專案，在公司已經用了大概半年。它利用類似 PS3 的[獎盃](http://www.yourgamercards.net/profile/alecchen)系統，可以讓你在枯燥的工作環境增加一點小小的趣味。
+[icefox](https://github.com/icefox) 的 [git-achievements](https://github.com/icefox/git-achievements) 是一個很有意思的專案，在公司已經用了大概半年。它利用類似 PS3 的[獎盃](http://www.yourgamercards.net/profile/alecchen)系統，可以讓你在枯燥的工作環境增加一點小小的趣味。
 
 
 ## 安裝
@@ -20,7 +20,7 @@ git clone https://github.com/icefox/git-achievements
 
 先別跟著做，因為這樣不是很正確，你只能自己欣賞你的獎盃，沒辦法跟別人分享。
 
-[git-achievement](https://github.com/icefox/git-achievements) 內建 github pages 支援，可以自動發佈你最新的成就，免功夫免技術，不用實在就太可惜囉。前提是你需要一個 github 帳號（沒有的快去申請！）。
+[git-achievements](https://github.com/icefox/git-achievements) 內建 github pages 支援，可以自動發佈你最新的成就，免功夫免技術，不用實在就太可惜囉。前提是你需要一個 github 帳號（沒有的快去申請！）。
 
 正確的方式是 fork 一份之後，再從自己的 repo clone 下來
 
@@ -49,19 +49,15 @@ git svn dcommit
 
 於是我的得分大部分都是從 git-svn 來的，是不是感覺有點悲哀？真希望 Linus 來幫大家[洗腦一下](http://www.youtube.com/watch?v=4XpnKHJAok8)。
 
-總之邊~~玩~~工作就會邊升級，三不五時就有一個獎盃也算是有點提振士氣的效果。最後如果你想欣賞你全部的獎盃的話，只需要打
+總之邊~~玩~~工作就會邊升級，三不五時就有一個獎盃也算是有點提振士氣的效果。
 
-```
-git achievements -p
-```
-
-就會在你安裝 git-achievements 的目錄產生 index.html，用你喜歡的瀏覽器打開就可以看到結果。假使你有 fork 一份，而且也設定了上傳到 github
+最後如果你想欣賞你全部的獎盃的話，只需要打 `git achievements -p`，就會在你安裝 git-achievements 的目錄產生`index.html`，用瀏覽器打開就可以看到結果。假使你有照前面介紹的 fork 一份，而且也設定了
 
 ```
 git config --global achievement.upload "true"
 ```
 
-就可以在
+那麼每當你拿到新的獎盃，[git-achievements](https://github.com/icefox/git-achievements) 就會自動幫你上傳，接著你就可以在
 
 ```
 http://<username>.github.com/git-achievements
