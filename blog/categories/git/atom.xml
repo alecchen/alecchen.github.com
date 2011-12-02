@@ -4,7 +4,7 @@
   <title><![CDATA[Category: git | Alec Chen]]></title>
   <link href="http://blog.alec.tw/blog/categories/git/atom.xml" rel="self"/>
   <link href="http://blog.alec.tw/"/>
-  <updated>2011-12-02T09:31:08+08:00</updated>
+  <updated>2011-12-02T09:42:38+08:00</updated>
   <id>http://blog.alec.tw/</id>
   <author>
     <name><![CDATA[Alec Chen]]></name>
@@ -62,7 +62,7 @@ git svn dcommit
 
 <p>總之邊<del>玩</del>工作就會邊升級，三不五時就有一個獎盃也算是有點提振士氣的效果。</p>
 
-<p>最後如果你想欣賞你全部的獎盃的話，只需要打 <code>git achievements -p</code>，就會在你安裝 git-achievements 的目錄產生<code>index.html</code>，用瀏覽器打開就可以看到結果。假使你有照前面介紹的 fork 一份，而且也設定了</p>
+<p>最後如果你想欣賞你全部的獎盃的話，只需要打 <code>git achievements -p</code>，就會在你安裝 git-achievements 的目錄產生 <code>index.html</code>，用瀏覽器打開就可以看到結果。假使你有照前面介紹的 fork 一份，而且也設定了</p>
 
 <p><code>
 git config --global achievement.upload "true"
