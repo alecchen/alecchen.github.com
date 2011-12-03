@@ -48,8 +48,9 @@ default_asides:
     - asides/recent_posts.html
     - asides/twitter.html
     - custom/asides/lastfm.html
-    - asides/github.html
     - asides/delicious.html
+    - asides/github.html
+    - custom/asides/cpan.html
     - asides/googleplus.html
     #- asides/pinboard.html
 
@@ -71,7 +72,7 @@ github_skip_forks:        true
 
 # Twitter
 twitter_user:                alec929
-twitter_tweet_count:         3
+twitter_tweet_count:         5
 twitter_show_replies:        false
 twitter_follow_button:       true
 twitter_show_follower_count: false
@@ -92,7 +93,7 @@ pinboard_count: 3
 
 # Delicious
 delicious_user: alec929
-delicious_count: 3
+delicious_count: 5
 
 # Disqus Comments
 disqus_short_name:         alecchen
@@ -106,5 +107,7 @@ facebook_like: true
 
 # Last.fm
 lastfm_user:  alec929
-lastfm_count: 3
+lastfm_count: 5
 lastfm_api:   dd446cc07133de4fadac35b1d2b5e7cc
+
+cpan_user: alec
