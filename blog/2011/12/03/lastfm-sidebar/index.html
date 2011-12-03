@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Alec Chen</title>
+  <title>為 Octopress 加上 Last.fm 支援 - Alec Chen</title>
   <meta name="author" content="Alec Chen">
 
   
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.alec.tw">
+  <link rel="canonical" href="http://blog.alec.tw/blog/2011/12/03/lastfm-sidebar">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -73,15 +73,12 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2011/12/03/lastfm-sidebar/">為 Octopress 加上 Last.fm 支援</a></h1>
+      <h1 class="entry-title">為 Octopress 加上 Last.fm 支援</h1>
     
     
       <p class="meta">
@@ -99,14 +96,14 @@
 
 <time datetime="2011-12-03T13:44:00+08:00" pubdate data-updated="true">Dec 3<span>rd</span>, 2011</time>
         
-         | <a href="/blog/2011/12/03/lastfm-sidebar/#disqus_thread">Comments</a>
+         | <a href="#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>想在側邊欄利用 <a href="http://www.last.fm/">Last.fm</a> 分享最近聽過的歌。雖然 Last.fm 官方其實是可以幫你產生<a href="http://www.last.fm/tools/charts">一段 HTML</a> 方便你直接放在自己的網站上的，不過看來看去總覺得沒有任何一個符合目前的版型，於是作罷。</p>
+<div class="entry-content"><p>想在側邊欄利用 <a href="http://www.last.fm/">Last.fm</a> 分享最近聽過的歌。雖然 Last.fm 官方其實是可以幫你產生<a href="http://www.last.fm/tools/charts">一段 HTML</a> 方便你直接放在自己的網站上的，不過看來看去總覺得沒有任何一個符合目前的版型，於是作罷。</p>
 
 <p>剛好自己來練習寫一個。</p>
 
@@ -173,22 +170,16 @@
 
 <p>填上自己的設定就搞定啦，打完收工！</p>
 </div>
-  
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/12/02/git-achievements/">用 Git 得獎盃 - Git Achievements</a></h1>
-    
-    
-      <p class="meta">
-        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Alec Chen</span></span>
+
+      
 
 
 
@@ -200,96 +191,48 @@
   
 
 
-<time datetime="2011-12-02T07:08:00+08:00" pubdate data-updated="true">Dec 2<span>nd</span>, 2011</time>
-        
-         | <a href="/blog/2011/12/02/git-achievements/#disqus_thread">Comments</a>
-        
-      </p>
+<time datetime="2011-12-03T13:44:00+08:00" pubdate data-updated="true">Dec 3<span>rd</span>, 2011</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/javascript/'>javascript</a>, <a class='category' href='/blog/categories/music/'>music</a>, <a class='category' href='/blog/categories/octopress/'>octopress</a>
+  
+</span>
+
+
+    </p>
     
-  </header>
-
-
-  <div class="entry-content"><blockquote><p>已獲得獎盃。<br/>Git - 擊倒 50 名敵人</p></blockquote>
-
-
-<p>這純粹是我自己的想像，因為最近都在玩再度成為經典的<a href="http://acg.gamer.com.tw/acgDetail.php?s=42215">秘境探險 3</a>的關係。</p>
-
-<p><a href="https://github.com/icefox">icefox</a> 的 <a href="https://github.com/icefox/git-achievements">git-achievements</a> 是一個很有意思的專案，在公司已經用了大概半年。它利用類似 PS3 的<a href="http://www.yourgamercards.net/profile/alecchen">獎盃</a>系統，可以讓你在枯燥的工作環境增加一點小小的趣味。</p>
-
-<h2>安裝</h2>
-
-<p>首先當然是 clone 一份來。</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git clone https://github.com/icefox/git-achievements</span></code></pre></td></tr></table></div></figure>
-
-
-<p>先別跟著做，因為這樣不是很正確，你只能自己欣賞你的獎盃，沒辦法跟別人分享。</p>
-
-<p><a href="https://github.com/icefox/git-achievements">git-achievements</a> 內建 github pages 支援，可以自動發佈你最新的成就，免功夫免技術，不用實在就太可惜囉。前提是你需要一個 github 帳號（沒有的快去申請！）。</p>
-
-<p>正確的方式是 fork 一份之後，再從自己的 repo clone 下來</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git clone git@github.com:&lt;username&gt;/git-achievements.git</span></code></pre></td></tr></table></div></figure>
-
-
-<p>最後改一下 shell 的環境變數（這是 bash，其他什麼 *sh 的請自行想像）</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;$PATH:~/git/git-achievements&quot;</span>
-</span><span class='line'><span class="nb">alias </span><span class="nv">git</span><span class="o">=</span><span class="s2">&quot;git-achievements&quot;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>接著就不管他了，照原本的工作方式用 git。</p>
-
-<h2>使用</h2>
-
-<p>目前在公司因為用 svn 的同事還是佔大多數，程式碼也都是放在 svn server 上，所以常做的就是</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>git svn rebase
-</span><span class='line'>git svn dcommit
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>於是我的得分大部分都是從 git-svn 來的，是不是感覺有點悲哀？真希望 Linus 來幫大家<a href="http://www.youtube.com/watch?v=4XpnKHJAok8">洗腦一下</a>。</p>
-
-<p>總之邊<del>玩</del>工作就會邊升級，三不五時就有一個獎盃也算是有點提振士氣的效果。</p>
-
-<p>最後如果你想欣賞你全部的獎盃的話，只需要打 <code>git achievements -p</code>，就會在你安裝 git-achievements 的目錄產生 <code>index.html</code>，用瀏覽器打開就可以看到結果。假使你有照前面介紹的 fork 一份，而且也設定了</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>git config --global achievement.upload <span class="s2">&quot;true&quot;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>那麼每當你拿到新的獎盃，<a href="https://github.com/icefox/git-achievements">git-achievements</a> 就會自動幫你上傳，接著你就可以在</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>http://&lt;username&gt;.github.com/git-achievements
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>看到你全部的獎盃囉！是不是很有成就感！</p>
-
-<p>你問我說耐不耐玩？看看作者 <a href="https://github.com/icefox">icefox</a> 自己都<a href="http://icefox.github.com/git-achievements/">還沒全破</a>，你說呢？一起來用 <a href="http://git-scm.com/">Git</a> 拿獎盃吧！</p>
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.alec.tw/blog/2011/12/03/lastfm-sidebar/" data-via="alec929" data-counturl="http://blog.alec.tw/blog/2011/12/03/lastfm-sidebar/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
 </div>
-  
-  
 
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2011/12/02/git-achievements/" title="Previous Post: 用 Git 得獎盃 - Git Achievements">&laquo; 用 Git 得獎盃 - Git Achievements</a>
+      
+      
+    </p>
+  </footer>
+</article>
 
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
+  </section>
+
+</div>
+
 <aside class="sidebar">
   
     <section>
@@ -314,7 +257,7 @@
 <section>
   <h1>Latest Tweets</h1>
   <ul id="tweets">
-    <li class="loading">Status updating&#8230;</li>
+    <li class="loading">Status updating...</li>
   </ul>
   <script type="text/javascript">
     $.domReady(function(){
@@ -352,7 +295,7 @@
 <section>
   <h1>Github Repos</h1>
   <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
+    <li class="loading">Status updating...</li>
   </ul>
   
   <a href="https://github.com/alecchen">@alecchen</a> on Github
@@ -400,6 +343,7 @@
   
 </aside>
 
+
     </div>
   </div>
   <footer role="contentinfo"><p>
@@ -414,7 +358,10 @@
       var disqus_shortname = 'alecchen';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://blog.alec.tw/blog/2011/12/03/lastfm-sidebar/';
+        var disqus_url = 'http://blog.alec.tw/blog/2011/12/03/lastfm-sidebar/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
