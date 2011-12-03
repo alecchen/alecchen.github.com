@@ -1,0 +1,21 @@
+<section>
+  <h1>Recent Tracks</h1>
+  <script type="text/javascript">
+    function getRecentLastfmTracks(data) {
+      var output = "<ul>";
+      var tracks = data["recenttracks"].track;
+      for (var i=0, l=tracks.length; i<l; i++) {
+        var track      = tracks[i];
+        var artist     = track["artist"]["#text"];
+        var track_name = track["name"];
+        var track_url  = track["url"];
+        output += '<li><a href="' + track_url + '">' + artist + ' - ' + track_name + '</a></li>';
+      }
+      output += "</ul>";
+      $('#lastfm').html(output);
+    }
+  </script>
+  <div id="lastfm"></div>
+  <script type="text/javascript" src="http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=alec929&format=json&limit=3&api_key=dd446cc07133de4fadac35b1d2b5e7cc&amp;callback=getRecentLastfmTracks"></script>
+  <a href="http://www.last.fm/user/alec929">@alec929</a> on Last.fm
+</section>
