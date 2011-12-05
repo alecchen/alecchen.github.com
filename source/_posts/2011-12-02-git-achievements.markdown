@@ -33,7 +33,7 @@ git clone https://github.com/icefox/git-achievements
 git clone git@github.com:<username>/git-achievements.git
 ```
 
-最後改一下 bash 的環境變數（其他什麼 *sh 的請自行想像）
+最後改一下 bash 的環境變數（其他什麼 \*sh 的請自行想像）
 
 
 ``` bash
