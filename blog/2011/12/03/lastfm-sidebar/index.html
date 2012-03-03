@@ -1,0 +1,417 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>為 Octopress 加上 Last.fm 支援 - Alec Chen</title>
+  <meta name="author" content="Alec Chen">
+
+  
+  <meta name="description" content="想在側邊欄利用 Last.fm 分享最近聽過的歌。雖然 Last.fm 官方其實是可以幫你產生一段 HTML 方便你直接放在自己的網站上的，不過看來看去總覺得沒有任何一個符合目前的版型，於是作罷。 剛好自己來練習寫一個。 架構 看了一下 Octopress 關於 Template 的文件之後， &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://blog.alec.tw/blog/2011/12/03/lastfm-sidebar">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/alecchen" rel="alternate" title="Alec Chen" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-27420883-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Alec Chen</a></h1>
+  
+    <h2>貪多嚼不爛</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/alecchen" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:blog.alec.tw" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives/">Archives</a></li>
+  <li><a href="/about/">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">為 Octopress 加上 Last.fm 支援</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-12-03T13:44:00+08:00" pubdate data-updated="true">Dec 3<span>rd</span>, 2011</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>想在側邊欄利用 <a href="http://www.last.fm">Last.fm</a> 分享最近聽過的歌。雖然 <a href="http://www.last.fm">Last.fm</a> 官方其實是可以幫你產生<a href="http://www.last.fm/tools/charts">一段 HTML</a> 方便你直接放在自己的網站上的，不過看來看去總覺得沒有任何一個符合目前的版型，於是作罷。</p>
+
+<p>剛好自己來練習寫一個。</p>
+
+<h2>架構</h2>
+
+<p>看了一下 Octopress 關於 <a href="http://octopress.org/docs/theme/template/">Template</a> 的文件之後，才發現它的架構非常有彈性。任何客製化的內容都放在 <code>source/_includes/custom/</code> 裡面，而 sidebars 的內容放在 <code>asides</code> 裡。</p>
+
+<p>使用的時候必須要在 <code>_config.yml</code> 裡面將自己寫好的 aside 加到 <code>_config.yml</code> 的 <code>default_asides</code> 陣列裡才會生效。出現的順序跟在陣列裡的順序是一樣的。</p>
+
+<p>架構都搞清楚了，接下來問題就是怎麼寫 aside 了。</p>
+
+<h2>實作</h2>
+
+<p>參考了內建 <a href="http://delicious.com/">delicious</a> 支援的</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>source/javascripts/octopress.js
+</span><span class='line'>source/_includes/asides/delicious.html</span></code></pre></td></tr></table></div></figure>
+
+
+<p>兩個檔案，發現只需要拿到網站提供的 JSON 之後事情就簡單了。</p>
+
+<p><a href="http://www.last.fm">Last.fm</a> 有很詳細的<a href="http://www.last.fm/api/intro">手冊</a>提供給 Developer 參考，不過你必須先申請一個 API Key，才能利用 API 取用這些資料。在這裡我們需要的是 <code>user.getRecentTracks</code> 這個方法。</p>
+
+<p>接下來只需要把</p>
+
+<div><script src='https://gist.github.com/1426209.js?file='></script>
+<noscript><pre><code>&lt;section&gt;
+  &lt;h1&gt;Recent Tracks&lt;/h1&gt;
+  &lt;script type=&quot;text/javascript&quot;&gt;
+    function getRecentLastfmTracks(data) {
+      var output = &quot;&lt;ul&gt;&quot;;
+      var tracks = data[&quot;recenttracks&quot;].track;
+      for (var i=0, l=tracks.length; i&lt;l; i++) {
+        var track      = tracks[i];
+        var artist     = track[&quot;artist&quot;][&quot;#text&quot;];
+        var track_name = track[&quot;name&quot;];
+        var track_url  = track[&quot;url&quot;];
+        output += '&lt;li&gt;&lt;a href=&quot;' + track_url + '&quot;&gt;' + artist + ' - ' + track_name + '&lt;/a&gt;&lt;/li&gt;';
+      }
+      output += &quot;&lt;/ul&gt;&quot;;
+      $('#lastfm').html(output);
+    }
+  &lt;/script&gt;
+  &lt;div id=&quot;lastfm&quot;&gt;&lt;/div&gt;
+  &lt;script type=&quot;text/javascript&quot; src=&quot;http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&amp;amp;user={{ site.lastfm_user }}&amp;amp;format=json&amp;amp;limit={{ site.lastfm_count }}&amp;amp;api_key={{ site.lastfm_api }}&amp;amp;callback=getRecentLastfmTracks&quot;&gt;&lt;/script&gt;
+  &lt;a href=&quot;http://www.last.fm/user/alec929&quot;&gt;@alec929&lt;/a&gt; on Last.fm
+&lt;/section&gt;</code></pre></noscript></div>
+
+
+<p>放到 <code>source/_includes/custom/asides/lastfm.html</code> 裡，並且把這個路徑加到 <code>default_asides</code>。</p>
+
+<p>然後在 <code>_config.yml</code> 裡新增下面三個參數</p>
+
+<figure class='code'><figcaption><span>_config.yml</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">lastfm_user</span><span class="p-Indicator">:</span>
+</span><span class='line'><span class="l-Scalar-Plain">lastfm_count</span><span class="p-Indicator">:</span>
+</span><span class='line'><span class="l-Scalar-Plain">lastfm_api</span><span class="p-Indicator">:</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>填上自己的設定就搞定啦，打完收工！</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Alec Chen</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-12-03T13:44:00+08:00" pubdate data-updated="true">Dec 3<span>rd</span>, 2011</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/javascript/'>javascript</a>, <a class='category' href='/blog/categories/music/'>music</a>, <a class='category' href='/blog/categories/octopress/'>octopress</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.alec.tw/blog/2011/12/03/lastfm-sidebar/" data-via="alec929" data-counturl="http://blog.alec.tw/blog/2011/12/03/lastfm-sidebar/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2011/12/02/git-achievements/" title="Previous Post: 用 Git 得獎盃 - Git Achievements">&laquo; 用 Git 得獎盃 - Git Achievements</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>About Me</h1>
+  <p>以寫程式維生的半導體工程師。認為生命應該浪費在美好的事物上，於是利用各種方法增加生產力。</p>
+  <p><img src="/images/alec-email.png" alt="alec-email.png" width="142" height="21"></p>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2011/12/03/lastfm-sidebar/">為 Octopress 加上 Last.fm 支援</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/12/02/git-achievements/">用 Git 得獎盃 - Git Achievements</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("alec929", 5, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/alec929" class="twitter-follow-button" data-width="208px" data-show-count="false">Follow @alec929</a>
+  
+</section>
+
+<section>
+  <h1>Recent Tracks</h1>
+  <script type="text/javascript">
+    function getRecentLastfmTracks(data) {
+      var output = "<ul>";
+      var tracks = data["recenttracks"].track;
+      for (var i=0, l=tracks.length; i<l; i++) {
+        var track      = tracks[i];
+        var artist     = track["artist"]["#text"];
+        var track_name = track["name"];
+        var track_url  = track["url"];
+        output += '<li><a href="' + track_url + '">' + artist + ' - ' + track_name + '</a></li>';
+      }
+      output += "</ul>";
+      $('#lastfm').html(output);
+    }
+  </script>
+  <div id="lastfm"></div>
+  <script type="text/javascript" src="http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&amp;user=alec929&amp;format=json&amp;limit=5&amp;api_key=dd446cc07133de4fadac35b1d2b5e7cc&amp;callback=getRecentLastfmTracks"></script>
+  <a href="http://www.last.fm/user/alec929">@alec929</a> on Last.fm
+</section>
+
+<section>
+  <h1>On Delicious</h1>
+  <div id="delicious"></div>
+  <script type="text/javascript" src="http://feeds.delicious.com/v2/json/alec929?count=5&amp;sort=date&amp;callback=renderDeliciousLinks"></script>
+  <p><a href="http://delicious.com/alec929">My Delicious Bookmarks &raquo;</a></p>
+</section>
+
+<section>
+  <h1>Github Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/alecchen">@alecchen</a> on Github
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'alecchen',
+            count: 3,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+<section class="googleplus">
+  <h1>
+    <a href="http://search.cpan.org/~alec/"><img src="/images/cpan-logo.png" width="32" height="32"> CPAN </a>
+  </h1>
+</section>
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/100775041785169167843?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2011 - Alec Chen -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'alecchen';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://blog.alec.tw/blog/2011/12/03/lastfm-sidebar/';
+        var disqus_url = 'http://blog.alec.tw/blog/2011/12/03/lastfm-sidebar/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

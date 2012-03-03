@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: javascript | Alec Chen]]></title>
+  <link href="http://blog.alec.tw/blog/categories/javascript/atom.xml" rel="self"/>
+  <link href="http://blog.alec.tw/"/>
+  <updated>2011-12-05T08:30:50+08:00</updated>
+  <id>http://blog.alec.tw/</id>
+  <author>
+    <name><![CDATA[Alec Chen]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[為 Octopress 加上 Last.fm 支援]]></title>
+    <link href="http://blog.alec.tw/blog/2011/12/03/lastfm-sidebar/"/>
+    <updated>2011-12-03T13:44:00+08:00</updated>
+    <id>http://blog.alec.tw/blog/2011/12/03/lastfm-sidebar</id>
+    <content type="html"><![CDATA[<p>想在側邊欄利用 <a href="http://www.last.fm">Last.fm</a> 分享最近聽過的歌。雖然 <a href="http://www.last.fm">Last.fm</a> 官方其實是可以幫你產生<a href="http://www.last.fm/tools/charts">一段 HTML</a> 方便你直接放在自己的網站上的，不過看來看去總覺得沒有任何一個符合目前的版型，於是作罷。</p>
+
+<p>剛好自己來練習寫一個。</p>
+
+<h2>架構</h2>
+
+<p>看了一下 Octopress 關於 <a href="http://octopress.org/docs/theme/template/">Template</a> 的文件之後，才發現它的架構非常有彈性。任何客製化的內容都放在 <code>source/_includes/custom/</code> 裡面，而 sidebars 的內容放在 <code>asides</code> 裡。</p>
+
+<p>使用的時候必須要在 <code>_config.yml</code> 裡面將自己寫好的 aside 加到 <code>_config.yml</code> 的 <code>default_asides</code> 陣列裡才會生效。出現的順序跟在陣列裡的順序是一樣的。</p>
+
+<p>架構都搞清楚了，接下來問題就是怎麼寫 aside 了。</p>
+
+<h2>實作</h2>
+
+<p>參考了內建 <a href="http://delicious.com/">delicious</a> 支援的</p>
+
+<p><code>
+source/javascripts/octopress.js
+source/_includes/asides/delicious.html
+</code></p>
+
+<p>兩個檔案，發現只需要拿到網站提供的 JSON 之後事情就簡單了。</p>
+
+<p><a href="http://www.last.fm">Last.fm</a> 有很詳細的<a href="http://www.last.fm/api/intro">手冊</a>提供給 Developer 參考，不過你必須先申請一個 API Key，才能利用 API 取用這些資料。在這裡我們需要的是 <code>user.getRecentTracks</code> 這個方法。</p>
+
+<p>接下來只需要把</p>
+
+<p><div><script src='https://gist.github.com/1426209.js?file='></script>
+<noscript><pre><code>&lt;section&gt;
+  &lt;h1&gt;Recent Tracks&lt;/h1&gt;
+  &lt;script type=&quot;text/javascript&quot;&gt;
+    function getRecentLastfmTracks(data) {
+      var output = &quot;&lt;ul&gt;&quot;;
+      var tracks = data[&quot;recenttracks&quot;].track;
+      for (var i=0, l=tracks.length; i&lt;l; i++) {
+        var track      = tracks[i];
+        var artist     = track[&quot;artist&quot;][&quot;#text&quot;];
+        var track_name = track[&quot;name&quot;];
+        var track_url  = track[&quot;url&quot;];
+        output += '&lt;li&gt;&lt;a href=&quot;' + track_url + '&quot;&gt;' + artist + ' - ' + track_name + '&lt;/a&gt;&lt;/li&gt;';
+      }
+      output += &quot;&lt;/ul&gt;&quot;;
+      $('#lastfm').html(output);
+    }
+  &lt;/script&gt;
+  &lt;div id=&quot;lastfm&quot;&gt;&lt;/div&gt;
+  &lt;script type=&quot;text/javascript&quot; src=&quot;http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&amp;amp;user={{ site.lastfm_user }}&amp;amp;format=json&amp;amp;limit={{ site.lastfm_count }}&amp;amp;api_key={{ site.lastfm_api }}&amp;amp;callback=getRecentLastfmTracks&quot;&gt;&lt;/script&gt;
+  &lt;a href=&quot;http://www.last.fm/user/alec929&quot;&gt;@alec929&lt;/a&gt; on Last.fm
+&lt;/section&gt;</code></pre></noscript></div>
+</p>
+
+<p>放到 <code>source/_includes/custom/asides/lastfm.html</code> 裡，並且把這個路徑加到 <code>default_asides</code>。</p>
+
+<p>然後在 <code>_config.yml</code> 裡新增下面三個參數</p>
+
+<p><code>yaml _config.yml
+lastfm_user:
+lastfm_count:
+lastfm_api:
+</code></p>
+
+<p>填上自己的設定就搞定啦，打完收工！</p>
+]]></content>
+  </entry>
+  
+</feed>
